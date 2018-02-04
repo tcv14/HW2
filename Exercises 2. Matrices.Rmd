@@ -190,5 +190,11 @@ sum((1:20)^4/(3+outer(1:20,1:5,"*")))
 
 (c) $\sum\limits_{i=1}^{10} \sum\limits_{j=1}^i \frac{i^4}{(3+ij)}$
 ```{r}
-sum((1:10)^4/(3+outer(1:10,1:10,"*")))
+i <- 1:10; j <- 1:10
+ij <- function(i,j) {
+  ifelse(i>=j,1/(i*j+3),0)
+}
+sum((matrix(i^4,nrow=1,byrow=FALSE))%*%(outer(i,j,ij)))
 ```
+
+******
