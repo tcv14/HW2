@@ -172,6 +172,7 @@ whilst the date 21/2/1963 has $m=12, k=21, c=19, and y=62$.
 Write a function `weekday(day,month,year)` which returns the day of the week when given the numerical inputs of the day, month and year.  
 Note that the value of 1 for $f$ denotes Sunday, 2 denotes Monday, etc.
 ```{r}
+# Note: "+1" was added to Zeller's congruence formula in order to correct it.
 weekday <- function(day,month,year) {
   k <- day
   m <- month-2
